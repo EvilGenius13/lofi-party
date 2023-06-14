@@ -12,7 +12,11 @@ $(document).ready(() => {
       currentUser = username;
       currentUserColor = $('#color-input').val();
       socket.emit('join room', roomCode);
-      socket.emit('new user', { username, color: currentUserColor });
+      socket.emit('new user', { 
+        username, 
+        color: currentUserColor,
+        roomCode
+       });
       $('.username-form').remove();
     }
   });
@@ -62,10 +66,12 @@ $(document).ready(() => {
   function updateOnlineUsers(onlineUsers) {
     $('#online-users').empty();
     $('#online-users').append('<h1>Online Users</h1>');
-    $('#online-users').append('<h3>Room Code: ' + roomCode + '</h3>');
+    $('#online-users').append(`<h3>Room Code: ${roomCode}</h3>`);
     for (const userId in onlineUsers) {
-      const username = onlineUsers[userId];
-      $('#online-users').append(`<li style="color:${currentUserColor}">🟢 ${username}</li>`);
+      const user = onlineUsers[userId];
+      const username = user.username;
+      const color = user.color;
+      $('#online-users').append(`<li style="color:${color}">🟢 ${username}</li>`);
     }
   }
 

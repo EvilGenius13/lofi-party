@@ -20,6 +20,7 @@ module.exports = (io, socket) => {
   socket.on('new user', (data) => {
     console.log(`New user: ${data.username}`);
     socket.username = data.username; // Assign username to the socket
+    socket.usernameColor = data.color; // Assign color to the socket
     addUserToRoom(socket.id, data.username, socket.roomCode); // Add user to the room
     sendOnlineUsersUpdate(socket.roomCode);
   });
@@ -30,11 +31,14 @@ module.exports = (io, socket) => {
     io.to(data.roomCode).emit('new message', data);
   });
 
-  function addUserToRoom(userId, username, roomCode) {
+  function addUserToRoom(userId, username, roomCode, color) {
     if (!onlineUsers[roomCode]) {
       onlineUsers[roomCode] = {};
     }
-    onlineUsers[roomCode][userId] = username;
+    onlineUsers[roomCode][userId] = {
+      username,
+      color: socket.usernameColor
+    };
   }
 
   function removeUserFromRoom(userId) {
