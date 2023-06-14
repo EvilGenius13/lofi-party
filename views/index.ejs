@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lo-Fi Party</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/client.js"></script>
+</head>
+<body>
+    <div id="container">
+        <div id="online-users">
+          <h3>Room Code: <span id="room-code" data-room-code="<%= roomCode %>"><%= roomCode %></span></h3>
+          <h1>Online Users</h1>
+          <form class="username-form">
+            <input id="username-input" type="text" placeholder="Enter username">
+            <input id="color-input" type="color" value="#000000">
+            <button id="username-button">Submit</button>
+          </form>
+        </div>
+        <div id="stream">
+          <div id="video-player-container">
+            <iframe id="video-player" src="https://www.youtube.com/embed/jfKfPfyJRdk?controls=1" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div id="chat">
+          <h1>Chat</h1>
+          <div id="messages"></div>
+          <input id="chat-input" type="text" placeholder="Enter message">
+          <button id="chat-button">Send</button>
+        </div>
+    </div>
+</body>
+</html>
