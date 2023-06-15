@@ -67,11 +67,12 @@ $(document).ready(() => {
     $('#online-users').empty();
     $('#online-users').append('<h1>Online Users</h1>');
     $('#online-users').append(`<h3>Room Code: ${roomCode}</h3>`);
+    $('#online-users').append('<hr>')
     for (const userId in onlineUsers) {
       const user = onlineUsers[userId];
       const username = user.username;
       const color = user.color;
-      $('#online-users').append(`<li style="color:${color}">🟢 ${username}</li>`);
+      $('#online-users').append(`<li><span class="user-circle"></span><span style="color:${color}">${username}</span></li>`);
     }
   }
 

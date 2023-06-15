@@ -2,17 +2,58 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  font-family: 'Crimson Text', serif;
+  background-color: rgba(45, 1, 53, 0.6);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Add a text-shadow effect */
+}
+
+#landing-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 40px;
+}
+
+#landing-page button {
+  height: 35px;
+  border-radius: 5px;
+}
+
+#landing-page input {
+  height: 25px;
+  font-size: 14px;
+  border-radius: 5px;
 }
 
 #container {
   display: flex;
   flex-direction: row;
-  height: 100%;
+  min-height: 100vh;
 }
 
 #online-users {
   flex: 0 0 10%;
   border: 1px solid black;
+}
+
+#online-users h1, h3 {
+  text-align: center;
+}
+
+#online-users li {
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+#online-users input, button {
+  border-radius: 5px;
+  margin: 5px;
+}
+
+form {
+  text-align: center;
 }
 
 #stream {
@@ -44,7 +85,12 @@ html, body {
 }
 
 #chat h1 {
-  margin-top: auto;
+  text-align: center;
+  font-size: 40px;
+}
+#chat button {
+  height: 30px;
+  margin-top: 5px;
 }
 
 #messages {
@@ -55,4 +101,30 @@ html, body {
 #chat-input,
 #chat-button {
   margin-top: auto;
+}
+
+li {
+  list-style-type: none;
+  margin: 5px;
+}
+
+input {
+  height: 25px;
+  font-size: 14px;
+}
+
+.user-circle {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 10px;
+  vertical-align: middle;
+  background-color: greenyellow;
+}
+
+hr {
+  width: 100%;
+  border: none;
+  border-top: 2px solid black;
 }
