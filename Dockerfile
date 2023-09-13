@@ -14,7 +14,7 @@ RUN npm install --production && \
 # Copy the client source code to the working directory
 COPY . .
 
-# Expose port 3000
+# Expose port 3002 (change to what you need)
 EXPOSE 3002
 
 # Run the client
